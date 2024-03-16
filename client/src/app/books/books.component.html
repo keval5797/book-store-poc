@@ -1,2 +1,22 @@
-<p>books works!</p>
+<div class="container">
+    <div class="header">
+        <h1>Book Store</h1>
+        <button class="add-book-button" (click)="navigateToBookFormPage()">Add Book</button>
+      </div>
+    <div class="book-list">
+      <div *ngFor="let book of books" class="book-card" (click)="toggleDescription(book)">
+       
+        <div class="card-header" >
+            <div [hidden]="!book.isExpanded" (click)="$event.stopPropagation()">
+                <img title="Edit Book" src="assets/edit-icon.svg" alt="" (click)="editBook(book._id)">
+                <img title="Delete Book" src="assets/delete-icon.svg" alt="" (click)="deleteBook(book)">
+            </div>
+            <h2>{{ book.name }}</h2>
+        </div>
+        <p>Author: {{ book.author }}</p>
+        <p>Price: {{ book.price }}</p>
+        <p [hidden]="!book.isExpanded">Description: {{ book.description }}</p>
+      </div>
+    </div>
+  </div>
   

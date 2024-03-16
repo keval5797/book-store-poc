@@ -1,0 +1,9 @@
+<section class="dialog-wrapper">
+    <header class="heading"> {{title}}
+        <p class="sub-heading">{{message}}</p>
+    </header>
+    <div class="d-flex">
+        <button class="buttons buttons--white" mat-raised-button (click)="onDismiss()">Cancel</button>
+        <button class="buttons" mat-raised-button (click)="onConfirm()">Ok</button>
+    </div>
+</section>

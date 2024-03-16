@@ -4,11 +4,13 @@ import express, { Application } from "express";
 import mongoose from "mongoose";
 import book_routes from "./books";
 import { Book } from "./books/model";
+import cors from "cors";
 
 async function app() {
   const server: Application = express();
   await connectDB();
   server.use(express.json());
+  server.use(cors());
   server.use("/books", book_routes);
 
   server.listen(process.env.PORT, () => {

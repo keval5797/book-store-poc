@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+
+// html,
+// body {
+//     height: 100%;
+// }
+// body {
+//     margin: 0;
+//     font-family: Roboto, "Helvetica Neue", sans-serif;
+// }
+.mat-dialog-container {
+    padding: 0 !important;
+    border-radius: 2em !important;
+    box-shadow: none !important;
+}
+
+.buttons {
+    min-width: 150px !important;
+    height: 45px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    color: #fff;
+    font-weight: 300;
+    transition: 0.5s;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 10px !important;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.buttons--white {
+    background: transparent;
+    color: #000;
+    border: 1px solid #fff;
+}

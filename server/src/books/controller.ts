@@ -14,6 +14,18 @@ export async function getBooks(req: Request, res: Response) {
   }
 }
 
+export async function getBookById(req: Request, res: Response) {
+  try {
+    const validation = id_required.validate(req.params.id);
+    if (validation.error)
+      return sendError(res, 400, validation.error.details[0].message);
+    return sendSuccess(res, 200, await Book.findById(validation.value));
+  } catch (error) {
+    console.log("ERROR WHILE FETCHING BOOK BY ID", error);
+    return sendError(res, 500, "Internal Server Error");
+  }
+}
+
 export async function createBook(req: Request, res: Response) {
   try {
     const validation = create_book.validate(req.body);
@@ -47,7 +59,6 @@ export async function updateBook(req: Request, res: Response) {
 
 export async function deleteBook(req: Request, res: Response) {
   try {
-    req.body.id = req.params.id;
     const validation = id_required.validate(req.params.id);
     if (validation.error)
       return sendError(res, 400, validation.error.details[0].message);
