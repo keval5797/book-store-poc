@@ -8,3 +8,5 @@ export const putBooksEndPoint = (id: string) =>
   `${environment.baseUrl}/books/${id}`;
 export const deleteBooksEndPoint = (id: string) =>
   `${environment.baseUrl}/books/${id}`;
+
+export const postLoginEndPoint = `${environment.baseUrl}/user/login`;

@@ -29,10 +29,11 @@ export class BookFormComponent implements OnInit {
   }
 
   fetchBookById() {
-    console.log(this.bookId);
-    this.bookService.getBookById(this.bookId).subscribe((res) => {
-      this.bookForm.patchValue({ ...res['result'] });
-    });
+    if (this.bookId) {
+      this.bookService.getBookById(this.bookId).subscribe((res) => {
+        this.bookForm.patchValue({ ...res['result'] });
+      });
+    }
   }
   onSubmit(): void {
     if (this.bookForm.valid) {
