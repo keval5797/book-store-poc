@@ -3,15 +3,17 @@ dotenv.config();
 import express, { Application } from "express";
 import mongoose from "mongoose";
 import book_routes from "./books";
-import { Book } from "./books/model";
+import user_routes from "./user";
 import cors from "cors";
+import { authenticateUser } from "./utils/jwt/authenticate";
 
 async function app() {
   const server: Application = express();
   await connectDB();
   server.use(express.json());
   server.use(cors());
-  server.use("/books", book_routes);
+  server.use("/books", authenticateUser, book_routes);
+  server.use("/user", user_routes);
 
   server.listen(process.env.PORT, () => {
     return console.log("Server is listening at ", process.env.PORT);
