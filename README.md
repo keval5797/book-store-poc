@@ -4,7 +4,7 @@ This project is a simple Book Store application built with Angular for the front
 
 ## Getting Started
 
-To run this project locally, follow the steps below.
+To run this project locally, follow the steps below
 
 ### Prerequisites
 
